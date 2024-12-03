@@ -1,0 +1,26 @@
+main {
+  background-color: var(--primary-color);
+  text-align: center;
+  padding: 20px 0;
+  gap: 16px;
+}
+
+#section-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+main > input {
+  margin-bottom: 20px;
+  width: 250px;
+  height: 30px;
+}
+
+
+main > h1 {
+  color: var(--third-color);
+  padding: 10px 0;
+  font-size: 3rem;
+}

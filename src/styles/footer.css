@@ -1,0 +1,7 @@
+footer {
+  background-color: var(--primary-color);
+}
+
+footer > img {
+  border-radius: 50%;
+}

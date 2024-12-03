@@ -1,0 +1,18 @@
+
+#card-container > figure {
+  margin: 0;
+  background-color: var(--second-color);
+  width: 300px;
+  height: 350px;
+  border-radius: 10px;
+}
+
+#card-container > figure > figcaption {
+  text-align: center;
+  padding: 10px 0 0 0;
+  font-family: var(--second-font);
+}
+
+#card-container > figure > img {
+  border-radius: 10px 10px 0 0;
+}

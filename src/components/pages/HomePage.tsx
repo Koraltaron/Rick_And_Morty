@@ -43,7 +43,7 @@ function HomePage () {
         <input onChange={handleChange} type="text" placeholder="Trouve ton personnage préféré" value={text}></input>
         <section id="section-container">
           {filteredCharacters.map((character) => (
-            <Cards name={character.name} image={character.image} key={character.id}/>)
+            <Cards name={character.name} id={character.id} image={character.image} key={character.id}/>)
           )}
         </section>
         

@@ -16,7 +16,6 @@ function HomePage () {
   const characters = data.results as Character[];
 
   const[text, setText] = useState<string>("");
-  console.log(text)
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     if(event.currentTarget) {
@@ -24,10 +23,6 @@ function HomePage () {
     }
   }
 
-  const filteredCharacters = characters.filter((character) => {
-    character.name.includes(text) && character.name.includes(text)
-  })
-  
   /* Fetch with useEffect :
 
   const [character, setCharacter] = useState<Character[]>([])
@@ -39,14 +34,16 @@ function HomePage () {
   }, []) 
   */
 
+  const filteredCharacters = characters.filter((el) => el.name.toLocaleLowerCase().includes(text.toLocaleLowerCase()));
+
   return(
     <>
       <main>
         <h1>Rick and Morty</h1>
         <input onChange={handleChange} type="text" placeholder="Trouve ton personnage préféré" value={text}></input>
         <section id="section-container">
-          {filteredCharacters.map((el) => (
-          <Cards name={el.name} image={el.image} key={el.id}/>)
+          {filteredCharacters.map((character) => (
+            <Cards name={character.name} image={character.image} key={character.id}/>)
           )}
         </section>
         

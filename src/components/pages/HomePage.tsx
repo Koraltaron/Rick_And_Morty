@@ -42,9 +42,9 @@ function HomePage () {
         <h1>Rick and Morty</h1>
         <input onChange={handleChange} type="text" placeholder="Trouve ton personnage préféré" value={text}></input>
         <section id="section-container">
-          {filteredCharacters.map((character) => (
+          {filteredCharacters ? (filteredCharacters.map((character) => (
             <Cards name={character.name} id={character.id} image={character.image} key={character.id}/>)
-          )}
+          )): (<figure><img src ={characters[0].image} alt={characters[0].name}/><figcaption>Pas de personnage trouvé !</figcaption></figure>)}
         </section>
         
       </main>

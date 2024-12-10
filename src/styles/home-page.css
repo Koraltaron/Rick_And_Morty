@@ -1,8 +1,11 @@
 main {
   background-color: var(--primary-color);
   text-align: center;
+  display: flex;
+  flex-direction: column;
   padding: 20px 0;
   gap: 16px;
+  align-items: center;
 }
 
 .light-theme {
@@ -15,6 +18,7 @@ main {
   flex-wrap: wrap;
   gap: 40px;
   justify-content: center;
+  width: 80%;
 }
 
 main > input {
@@ -38,4 +42,18 @@ main > h1 {
     color: black;
     font-family: var(--second-font);
   }
+}
+
+#section-container > button {
+  position: fixed;
+  top: 50%;
+  font-size: 1.5rem;
+}
+
+#section-container > button:first-of-type {
+  left: 16px;
+}
+
+#section-container > button:last-of-type {
+  right: 16px;
 }

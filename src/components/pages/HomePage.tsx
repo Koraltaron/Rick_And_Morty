@@ -1,9 +1,8 @@
 import Cards from "../Cards"
 import "../../styles/home-page.css"
 import type { ChangeEvent } from "react";
-// import { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useLoaderData } from "react-router-dom"
-import { useState } from "react";
 import useTheme from "../../utils/useTheme";
 
 interface Character {
@@ -15,6 +14,7 @@ interface Character {
 function HomePage () {
   const data = useLoaderData() ;
   const characters = data.results as Character[];
+  const [page, setPage] = useState(1);
 
   const[text, setText] = useState<string>("");
 
@@ -24,7 +24,7 @@ function HomePage () {
     }
   }
 
-  /* Fetch with useEffect :
+  /* Fetch with useEffect : */
 
   const [character, setCharacter] = useState<Character[]>([])
 
@@ -33,12 +33,15 @@ function HomePage () {
     .then((response) => response.json())
     .then((data) => setCharacter(data.results))
   }, []) 
-  */
+  
 
   const filteredCharacters = text ? characters.filter((el) => el.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())) : characters;
  
   const themeContext = useTheme();
-  console.log(themeContext?.theme)
+  
+  function handlePage () {
+    console.warn('Yep')
+  }
 
   return(
     <>
@@ -46,6 +49,7 @@ function HomePage () {
         <h1>Rick and Morty</h1>
         <input onChange={handleChange} type="text" placeholder="Trouve ton personnage préféré" value={text}></input>
         <section id="section-container">
+          <button type="button" onClick={handlePage}>Previous</button>
           {filteredCharacters.length ? filteredCharacters.map((character) => {
             return (
             <Cards name={character.name} id={character.id} image={character.image} key={character.id}/> )})
@@ -57,6 +61,7 @@ function HomePage () {
               </figure>
               <p>Désolé, aucun personnage ne correspond à votre recherche</p>  
             </section>}
+            <button type="button" onClick={handlePage}>Next</button>
         </section>
       </main>
     </>

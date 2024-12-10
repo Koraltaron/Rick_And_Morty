@@ -34,7 +34,8 @@ function HomePage () {
   }, []) 
   */
 
-  const filteredCharacters = characters.filter((el) => el.name.toLocaleLowerCase().includes(text.toLocaleLowerCase()));
+  const filteredCharacters = text ? characters.filter((el) => el.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())) : characters;
+ 
 
   return(
     <>
@@ -42,11 +43,18 @@ function HomePage () {
         <h1>Rick and Morty</h1>
         <input onChange={handleChange} type="text" placeholder="Trouve ton personnage préféré" value={text}></input>
         <section id="section-container">
-          {filteredCharacters ? (filteredCharacters.map((character) => (
-            <Cards name={character.name} id={character.id} image={character.image} key={character.id}/>)
-          )): (<figure><img src ={characters[0].image} alt={characters[0].name}/><figcaption>Pas de personnage trouvé !</figcaption></figure>)}
+          {filteredCharacters.length ? filteredCharacters.map((character) => {
+            return (
+            <Cards name={character.name} id={character.id} image={character.image} key={character.id}/> )})
+            : 
+            <section className="default-search">
+              <figure>
+                <img src={characters[0].image} alt={characters[0].name}/>
+                <figcaption>{characters[0].name}</figcaption>
+              </figure>
+              <p>Désolé, aucun personnage ne correspond à votre recherche</p>  
+            </section>}
         </section>
-        
       </main>
     </>
   )

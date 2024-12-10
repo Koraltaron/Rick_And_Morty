@@ -1,7 +1,11 @@
 footer {
   background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer > img {
   border-radius: 50%;
+  width: 50px;
 }

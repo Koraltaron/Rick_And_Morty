@@ -25,3 +25,12 @@ main > h1 {
   padding: 10px 0;
   font-size: 3rem;
 }
+
+.default-search {
+  background-color: white;
+
+  && figcaption {
+    color: black;
+    font-family: var(--second-font);
+  }
+}

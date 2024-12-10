@@ -5,6 +5,11 @@ main {
   gap: 16px;
 }
 
+.light-theme {
+  background-color: white;
+  opacity: 0.5;
+}
+
 #section-container {
   display: flex;
   flex-wrap: wrap;

@@ -4,6 +4,7 @@ import type { ChangeEvent } from "react";
 // import { useEffect, useState } from "react"
 import { useLoaderData } from "react-router-dom"
 import { useState } from "react";
+import useTheme from "../../utils/useTheme";
 
 interface Character {
   image: string,
@@ -36,10 +37,12 @@ function HomePage () {
 
   const filteredCharacters = text ? characters.filter((el) => el.name.toLocaleLowerCase().includes(text.toLocaleLowerCase())) : characters;
  
+  const themeContext = useTheme();
+  console.log(themeContext?.theme)
 
   return(
     <>
-      <main>
+      <main className={`main-home ${themeContext?.theme && "light-theme"}`}>
         <h1>Rick and Morty</h1>
         <input onChange={handleChange} type="text" placeholder="Trouve ton personnage préféré" value={text}></input>
         <section id="section-container">

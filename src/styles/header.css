@@ -1,3 +1,12 @@
+header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  background-color: var(--third-color);
+  padding: 0 20px;
+}
+
 nav > img {
   width: 80px;
   border-radius: 50%;
@@ -5,14 +14,15 @@ nav > img {
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   padding : 10px;
-  background-color: var(--third-color);
+  width: 100%
 }
 
 nav > ul {
   display: flex;
-  gap : 32px
+  gap : 32px;
+  padding-left: 50px;
 }
 
